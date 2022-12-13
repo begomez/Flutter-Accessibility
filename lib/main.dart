@@ -1,3 +1,4 @@
+import 'package:accessibility_sample/utils.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,16 +11,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      value: "Welcome to the accessible counter app in Flutter",
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
-    );
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    ).semantics(descrip: "Welcome to the accessible counter app in Flutter");
   }
 }
 
@@ -58,26 +56,21 @@ class _MyHomePageState extends State<MyHomePage> {
             const Icon(
               Icons.flutter_dash_rounded,
               size: 100,
-              semanticLabel: "This image depicts the Flutter logo, Dash!",
-            ),
+            ).semantics(descrip: "This image depicts the Flutter logo, Dash!"),
             const Text(
               'You have pushed the button this many times:',
-              semanticsLabel: "This text shows the number of times you've pressed the button",
-            ),
+            ).semantics(descrip: "This text shows the number of times you've pressed the button"),
             Text(
               '$_counter',
-              semanticsLabel: "You've pressed $_counter times",
               style: Theme.of(context).textTheme.headline4,
-            ),
+            ).semantics(descrip: "You've pressed $_counter times"),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Semantics(
-            value: "Hey...",
-            child: const Icon(Icons.add, semanticLabel: "press this button if you want to increment the former value")),
+        child: const Icon(Icons.add).semantics(descrip: "press this button if you want to increment the former value"),
       ),
     );
   }
