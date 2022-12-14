@@ -44,9 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(
           widget.title,
-          semanticsLabel: widget.title,
         ),
-        excludeHeaderSemantics: false,
       ),
       body: Center(
         child: Column(
