@@ -1,4 +1,5 @@
 import 'package:accessibility_sample/accessible_icon.dart';
+import 'package:accessibility_sample/accessible_text.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -54,12 +55,14 @@ class _MyHomePageState extends State<MyHomePage> {
             const AccessibleIcon(
               iconData: Icons.flutter_dash_rounded,
               descrip: "This is a picture of Dash, Flutter's logo",
+              size: 100.0,
             ),
-            const Text(
-              'You have pushed the button this many times:',
+            const AccessibleText(
+              text: 'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
+            AccessibleText(
+              text: "$_counter",
+              descrip: "$_counter times pressed",
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
@@ -68,7 +71,11 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const AccessibleIcon(
+          iconData: Icons.add,
+          descrip: "Press this button to increment the previous counter",
+          size: 50.0,
+        ),
       ),
     );
   }
