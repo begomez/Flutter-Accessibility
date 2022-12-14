@@ -1,3 +1,4 @@
+import 'package:accessibility_sample/accessible_icon.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -50,9 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Icon(
-              Icons.flutter_dash_rounded,
-              size: 100,
+            const AccessibleIcon(
+              iconData: Icons.flutter_dash_rounded,
+              descrip: "This is a picture of Dash, Flutter's logo",
             ),
             const Text(
               'You have pushed the button this many times:',
