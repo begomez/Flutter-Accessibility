@@ -2,11 +2,11 @@ import 'package:accessibility_sample/utils.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyAccessibleApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyAccessibleApp extends StatelessWidget {
+  const MyAccessibleApp({super.key});
 
   // This widget is the root of your application.
   @override
