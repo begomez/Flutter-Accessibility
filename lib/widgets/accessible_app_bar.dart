@@ -1,4 +1,4 @@
-import 'package:accessibility_sample/accessible_text.dart';
+import 'package:accessibility_sample/widgets/accessible_text.dart';
 import 'package:flutter/material.dart';
 
 class AccessibleAppBar extends StatelessWidget {
