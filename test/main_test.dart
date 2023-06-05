@@ -1,12 +1,17 @@
 import 'package:accessibility_sample/main.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group("MyApp", () {
     SemanticsHandle? handle;
 
-    tearDown(() {
-      handle?.dispose();
+    setUpAll(() {
+      handle = WidgetsBinding.instance.ensureSemantics();
+    });
+
+    tearDownAll(() {
+      handle!.dispose();
     });
 
     testWidgets('when added to tree then displayed', (tester) async {
@@ -16,8 +21,6 @@ void main() {
     });
 
     testWidgets("when displayed then follows tap guidelines", (tester) async {
-      handle = tester.ensureSemantics();
-
       await tester.pumpWidget(const MyAccessibleApp());
 
       // check min size for buttons
@@ -30,17 +33,14 @@ void main() {
     });
 
     testWidgets("when displayed then follows label guidelines", (tester) async {
-      handle = tester.ensureSemantics();
-
       await tester.pumpWidget(const MyAccessibleApp());
 
       // check alt texts on buttons
       await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
     });
 
-    testWidgets("when displayed then follows contrast guidelines", (tester) async {
-      handle = tester.ensureSemantics();
-
+    testWidgets("when displayed then follows contrast guidelines",
+        (tester) async {
       await tester.pumpWidget(const MyAccessibleApp());
 
       // Checks whether semantic nodes meet the minimum text contrast levels.
